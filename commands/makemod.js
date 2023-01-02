@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -17,7 +17,8 @@ module.exports = {
 					{ name: 'Tier 1', value: 'tier1' },
 					{ name: 'Tier 2', value: 'tier2' },
 					{ name: 'Head Mod (3)', value: 'head' }
-				.setRequired(true))),
+				.setRequired(true)))
+		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 	async execute(interaction) {
 		if (interaction.options.getSubcommand() === 'new') {
 			const user = interaction.options.getUser('target');

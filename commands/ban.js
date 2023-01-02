@@ -1,10 +1,10 @@
-const { SlashCommandBuilder, Guild } = require('discord.js');
+const { SlashCommandBuilder, Guild, PermissionFlagsBits  } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ban')
 		.setDescription('Bans a user.')
-        .setDefaultMemberPermissions(BanMembers)
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
         .setDMPermission(false)
         .addUserOption(option =>
             option.setName('user')
