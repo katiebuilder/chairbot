@@ -1,5 +1,5 @@
 const { Client, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { execute } = require('./ping');
+const { execute } = require('./dm');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,12 +16,12 @@ module.exports = {
                 .setDescription('Themessage you want sent.')
                 .setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
-        .setDMPermission(true),
+        .setDMPermission(false),
     async execute(interaction) {
         const user = interaction.options.getUser('user');
         const message = interaction.options.getString('message');
 
-        client.users.send('${user.id}', '${message}')
+        Client.users.send('${user.id}', '${message}')
         await interaction.reply({ content: '${user.username} has been messaged!', ephemeral: true });
     }
 };
