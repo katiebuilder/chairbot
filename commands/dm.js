@@ -35,7 +35,7 @@ module.exports = {
                 .setTitle('Message')
                 .setDescription('${message}')
 
-        Client.users.send('${user.id}', {embeds: [embed], componenents: [button] });
+        await interaction.Client.users.send('${user.id}', {embeds: [embed], componenents: [button] });
         await interaction.reply({ content: '${user.username} has been messaged!', ephemeral: true });
     }
 };
