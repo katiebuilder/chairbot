@@ -17,6 +17,7 @@ for (const file of commandFiles) {
 
 client.once(Events.ClientReady, () => {
 	console.log('Ready!');
+	client.user.setActivity('Alpha v0.0.2');
 });
 
 client.on(Events.InteractionCreate, async interaction => {
