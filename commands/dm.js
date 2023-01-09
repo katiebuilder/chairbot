@@ -22,6 +22,6 @@ module.exports = {
         const message = interaction.options.getString('message');
 
         client.users.send('${user.id}', '${message}')
-        await interaction.reply({ content: '${user.username} has been messaged!' ephemeral: true });
+        await interaction.reply({ content: '${user.username} has been messaged!', ephemeral: true });
     }
 };
