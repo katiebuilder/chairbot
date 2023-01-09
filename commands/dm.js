@@ -1,4 +1,5 @@
-const { Client, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { ActionRowBuilder, EmbedBuilder } = require('@discordjs/builders');
+const { Client, SlashCommandBuilder, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, Embed } = require('discord.js');
 const { execute } = require('./dm');
 
 module.exports = {
@@ -21,7 +22,21 @@ module.exports = {
         const user = interaction.options.getUser('user');
         const message = interaction.options.getString('message');
 
-        Client.users.send('${user.id}', '${message}')
+        const button = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setCustomId('src')
+                    .setLabel('Sent from a staff memeber.')
+                    .setStyle(ButtonStyle.Link)
+                    .setDisabled(true)
+            )
+        
+            const embed = new EmbedBuilder()
+                .setColor(0x0099FF)
+                .setTitle('Message')
+                .setDescription('${message}')
+
+        Client.users.send('${user.id}', {embeds: [embed], componenents: [button] });
         await interaction.reply({ content: '${user.username} has been messaged!', ephemeral: true });
     }
 };
