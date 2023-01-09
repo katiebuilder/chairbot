@@ -1,4 +1,4 @@
-const { Client, SlashCommandBuilder, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, Embed } = require('discord.js');
+const { Client, SlashCommandBuilder, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, EmbedBuilder } = require('discord.js');
 const { execute } = require('./dm');
 
 module.exports = {
