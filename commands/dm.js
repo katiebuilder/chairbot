@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits, Client } = require('discord.js');
 const { execute } = require('./ping');
 
 module.exports = {
